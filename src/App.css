@@ -1,19 +1,122 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
+  width: 100%; /* Allow full width on larger screens */
+  max-width: 1280px; /* Limit width on smaller screens */
+  margin: 0 auto; /* Center the app */
+  padding: 2rem; /* Keep padding for inner spacing */
+  /* background: rgb(116, 124, 128); */
 }
 
+.main-header {
+  font-weight: bold; /* Bold text for the header */
+  color: rgb(221, 111, 67);
+  font-size: 30px;
+  margin-bottom: 5px;
+  text-align: center;
+}
 
 .container {
-  border: 2px solid rgba(32, 31, 31, 0.5);
-  margin-top: 5px;
-  border-radius: 5px;
+  border: 2px solid rgba(32, 31, 31, 0.5); /* Border styling */
+  margin-top: 5px; /* Top margin */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow:0 4px 10px rgba(0, 0, 0, 0.5) ;
 }
 
-.card{
-  
+.card {
+  margin-bottom: 20px; 
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+}
+
+.container .card {
+  margin-bottom: 10px; /* Space between cards */
+  background-color: rgb(25, 29, 29) !important; /* Light coral */
+  padding: 1rem; /* Inner spacing for card content */
+  border-radius: 5px; /* Optional: rounding card corners */
+  box-shadow:0 4px 10px rgba(0, 0, 0, 1) ;
+  margin: 10px 10px 10px 10px;
+
+
+}
+
+.input-field{
+  background: rgb(250, 248, 248);
+  border-radius: 5px;
+  color: black;
+  padding: 10px;
+  gap: 5px;
   margin-bottom: 10px;
-  background-color: aqua;
+}
+
+.Description{
+  padding: 20px;
+  
+}
+
+.addItem {
+  width: 25% !important; /* Set the desired width */
+  min-width: 100px; /* Minimum width for smaller screens */
+  max-width: 200px; /* Maximum width */
+  margin: 0 auto; /* Center the button */
+  display: block !important;
+  transition: background 1s ease !important;
+
+  &:hover{
+    background: rgb(26, 29, 16) !important;
+  
+  }
+}
+
+
+
+.btn{
+  width: 40%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+/* Custom button width */
+.btn-small-width {
+  width: 30%; /* Set width as a percentage */
+  min-width: 120px; /* Optional minimum width for responsiveness */
+}
+
+
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.todo-content {
+  display: flex;           /* Enable flexbox */
+  flex-wrap: wrap;         /* Allow items to wrap if necessary */
+  gap: 1rem;               /* Optional: Adds space between items */
+}
+
+.to-do-item {
+  flex: 1 1 200px;         /* Each item takes up equal space */
+  min-width: 200px;        /* Ensure a minimum width for each item */
+  border: 1px solid #ccc;  /* Example: Add border */
+  padding: 10px;           /* Example: Add padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1280px) {
+  #root {
+    max-width: 80%; /* Allow full width on smaller screens */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .container {
+    margin: 0; /* Remove margin for smaller screens */
+  }
 }

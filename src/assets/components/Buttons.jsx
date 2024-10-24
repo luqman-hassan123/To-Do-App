@@ -2,12 +2,14 @@ import React from "react";
 
 const Buttons = ({ title, className, onButtonClick }) => {
   return (
-    
-      <button
+    <div className="className">
+        <button
         className={className}
         title={title}
         onClick={() => onButtonClick()} > {title}
       </button>
+    </div>
+    
   
   );
 };

@@ -1,16 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const Input = ({ placeholder} ) => {
+const Input = ({ placeholder, className, value, onChange }) => {
   return (
-
-    <div className="mb-3">
     <input
       type="text"
-      className="form-control"
-      placeholder={placeholder} // Using the passed prop here
+      className={className}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange} // Use onChange here
     />
-  </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
