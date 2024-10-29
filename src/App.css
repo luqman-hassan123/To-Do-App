@@ -30,7 +30,7 @@
   margin-bottom: 10px; /* Space between cards */
   background-color: rgb(25, 29, 29) !important; /* Light coral */
   padding: 1rem; /* Inner spacing for card content */
-  border-radius: 5px; /* Optional: rounding card corners */
+  border-radius: 5px ;  /* Optional: rounding card corners */
   box-shadow:0 4px 10px rgba(0, 0, 0, 1) ;
   margin: 10px 10px 10px 10px;
 
@@ -52,7 +52,8 @@
 }
 
 .addItem {
-  width: 25% !important; /* Set the desired width */
+  width: 25px !important; /* Set the desired width */
+  height: 40px !important;
   min-width: 100px; /* Minimum width for smaller screens */
   max-width: 200px; /* Maximum width */
   margin: 0 auto; /* Center the button */
@@ -66,9 +67,70 @@
 }
 
 
+.to-do-item {
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  display: flex; /* Use flexbox to align content */
+  justify-content: space-between; /* Space between content */
+  align-items: center; /* Center items vertically */
+  display: flex !important;
+  border: 1px solid rgb(163, 160, 160) !important;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.to-do-item-options {
+  position: absolute;
+  right: 0; /* Keep it aligned to the right */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease, right 0.5s ease; /* Smooth transitions */
+  z-index: 1; /* Ensure it appears above other elements */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.to-do-item-options.show {
+  opacity: 1; /* Show the options */
+  right: 2px; /* Slightly offset from the right */
+}
+
+/* Style for badge on the right */
+.badge {
+  cursor: pointer;
+  border: 1px solid rebeccapurple;
+  color: black !important;
+  background: rgb(228, 243, 22);
+  padding: 2%;
+  position: relative;
+  float: right; /* Positions it to the right */
+  margin-left: auto;
+  z-index: 1; /* Base z-index to keep it above content */
+  transition: opacity 0.5s ease;
+  
+}
+
+/* Hide the badge under buttons on hover */
+.badge:hover {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  z-index: -1; /* Pushes it below buttons when hovered */
+}
+
+/* when hover on item priority badge will hide */
+.to-do-item:hover .badge {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1; /* Ensures the badge goes below other elements */
+}
+
+
 
 .btn{
-  width: 40%;
+  width: 60px;
+  height: 30px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -104,6 +166,39 @@
   padding: 10px;           /* Example: Add padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
 }
+
+
+
+
+
+/* App.css */
+
+.modal-overlay {
+  position: fixed;
+  border-radius: 5px;
+  color: rgb(14, 4, 4);
+  top: 10%; /* Position it slightly down to avoid full-screen overlay */
+  left: 10%; /* Position it slightly from the left to create space */
+  width: 80%; /* Allowing visible space on either side */
+  height: 40%; /* Allowing visible space at the top and bottom */
+  background: rgb(119, 117, 117); /* Nearly opaque for less transparency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  border: 1px solid black !important;
+}
+
+.modal-content {
+  background: rgb(68, 57, 57);
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 
 
 

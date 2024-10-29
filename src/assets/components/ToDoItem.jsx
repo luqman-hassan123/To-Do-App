@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import './ToDoItem.css'; // Ensure you have this CSS file for styles
 
-const ToDoItem = ({ title, description, priority, onDelete }) => {
+const ToDoItem = ({ title, description, priority, onDelete, onUpdate, onInfo }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="d-flex justify-content-between align-items-center to-do-item border p-2 mb-2">
-      <div>
-        <h6>{title}</h6>
+    <div
+      className="to-do-item d-flex align-items-center justify-content-between p-2"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="to-do-item-content flex-grow-1">
+        <span className={`badge ${priority.toLowerCase()}`}>{priority}</span>
+        <strong className="ms-3">{title}</strong>
         <p>{description}</p>
       </div>
-      <div className="d-flex align-items-center">
-        <span className="me-2">Priority: {priority}</span>
-        <button className="btn btn-danger btn-sm" onClick={onDelete}>
+
+      <div className= {` to-do-item-options ${isHovered ? 'show' : ''}`}>
+      <button className="btn btn-info btn-sm mx-1" onClick ={() => onInfo ({title, description, priority}) }title="Info">
+          Info
+        </button>
+        <button className="btn btn-warning btn-sm mx-1" onClick={onUpdate} title="Edit">
+          Edit
+        </button>
+        <button className="btn btn-danger btn-sm mx-1" onClick={onDelete} title="Delete">
           Delete
         </button>
       </div>

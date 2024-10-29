@@ -1,7 +1,7 @@
 // ToDoContent.jsx
 import ToDoItem from './ToDoItem'; // Import the ToDoItem component
 
-const ToDoContent = ({ items , onDeleteItem}) => {
+const ToDoContent = ({ items , onDeleteItem , onUpdateItem, onInfo}) => {
   return (
     <div className="to-do-content">
       {items.length > 0 ? (
@@ -12,6 +12,8 @@ const ToDoContent = ({ items , onDeleteItem}) => {
             description={item.description} 
             priority={item.priority} 
             onDelete = {() => onDeleteItem(index)}
+            onUpdate = {() => onUpdateItem(index)}
+            onInfo={() => onInfo (item)}
             />
         ))
       ) : (
