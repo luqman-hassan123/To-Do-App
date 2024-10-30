@@ -2,55 +2,66 @@
   width: 100%; /* Allow full width on larger screens */
   max-width: 1280px; /* Limit width on smaller screens */
   margin: 0 auto; /* Center the app */
-  padding: 2rem; /* Keep padding for inner spacing */
-  /* background: rgb(116, 124, 128); */
+  /* padding: 2rem; Keep padding for inner spacing */
+  border-radius: 5px;
+
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .main-header {
   font-weight: bold; /* Bold text for the header */
-  color: rgb(221, 111, 67);
+  color: rgb(209, 75, 22);
   font-size: 30px;
   margin-bottom: 5px;
   text-align: center;
 }
 
-.container {
-  border: 2px solid rgba(32, 31, 31, 0.5); /* Border styling */
-  margin-top: 5px; /* Top margin */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow:0 4px 10px rgba(0, 0, 0, 0.5) ;
+
+/* ****************main container *************************** */
+.container-fluid{
+  padding: 1rem;
+  width: 40% !important;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
+
 }
 
 .card {
-  margin-bottom: 20px; 
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+  margin-bottom: 30px; 
 }
 
 .container .card {
   margin-bottom: 10px; /* Space between cards */
-  background-color: rgb(25, 29, 29) !important; /* Light coral */
   padding: 1rem; /* Inner spacing for card content */
   border-radius: 5px ;  /* Optional: rounding card corners */
-  box-shadow:0 4px 10px rgba(0, 0, 0, 1) ;
+  box-shadow:0 4px 10px rgba(0, 0, 0, 0.5) ;
   margin: 10px 10px 10px 10px;
 
 
 }
 
+
+/* *************input field **************************** */
+
 .input-field{
-  background: rgb(250, 248, 248);
+  background: white;
+  border: 1px solid rgb(209, 207, 207);
   border-radius: 5px;
   color: black;
   padding: 10px;
   gap: 5px;
   margin-bottom: 10px;
+
+  &:hover{
+    border: 1px solid blue;
+    box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
+  }
 }
 
-.Description{
-  padding: 20px;
-  
-}
 
+/* *************add item button **************************** */
 .addItem {
   width: 25px !important; /* Set the desired width */
   height: 40px !important;
@@ -62,11 +73,30 @@
 
   &:hover{
     background: rgb(26, 29, 16) !important;
-  
+    box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
+  }
+}
+
+.form-control{
+  &:hover{
+    border: 1px solid blue;
+    box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
   }
 }
 
 
+
+/*  **********select priority *********** */
+
+.form-select{
+  &:hover{
+    border: 1px solid blue;
+    box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
+  }
+  
+}
+
+/* ***********item list ************************** */
 .to-do-item {
   position: relative;
   overflow: hidden;
@@ -78,8 +108,11 @@
   border: 1px solid rgb(163, 160, 160) !important;
   border-radius: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
+
+/* ******************opton button info edit delete*****************/
 .to-do-item-options {
   position: absolute;
   right: 0; /* Keep it aligned to the right */
@@ -94,21 +127,28 @@
 
 .to-do-item-options.show {
   opacity: 1; /* Show the options */
-  right: 2px; /* Slightly offset from the right */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Style for badge on the right */
 .badge {
   cursor: pointer;
+  height: 25px;
+  width: 65px;
+  margin-top: 17px;
+  margin-right: 10px;
   border: 1px solid rebeccapurple;
   color: black !important;
-  background: rgb(228, 243, 22);
+  background: rgb(166, 185, 219);
   padding: 2%;
   position: relative;
   float: right; /* Positions it to the right */
   margin-left: auto;
   z-index: 1; /* Base z-index to keep it above content */
   transition: opacity 0.5s ease;
+  
   
 }
 
@@ -128,6 +168,7 @@
 
 
 
+/* ****************general button******************** */
 .btn{
   width: 60px;
   height: 30px;
@@ -138,7 +179,7 @@
 }
 
 
-/* Custom button width */
+/* ********************************Custom button width ****************************/
 .btn-small-width {
   width: 30%; /* Set width as a percentage */
   min-width: 120px; /* Optional minimum width for responsiveness */
@@ -156,7 +197,8 @@
 .todo-content {
   display: flex;           /* Enable flexbox */
   flex-wrap: wrap;         /* Allow items to wrap if necessary */
-  gap: 1rem;               /* Optional: Adds space between items */
+  gap: 1rem;  
+               /* Optional: Adds space between items */
 }
 
 .to-do-item {
@@ -165,28 +207,34 @@
   border: 1px solid #ccc;  /* Example: Add border */
   padding: 10px;           /* Example: Add padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+
+  &:hover{
+    border: 2px solid blue !important;
+    box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
+  }
 }
 
 
 
 
 
-/* App.css */
+/* **********************modal *******************************/
 
 .modal-overlay {
   position: fixed;
   border-radius: 5px;
-  color: rgb(14, 4, 4);
+  color: rgb(19, 18, 18);
   top: 10%; /* Position it slightly down to avoid full-screen overlay */
   left: 10%; /* Position it slightly from the left to create space */
   width: 80%; /* Allowing visible space on either side */
   height: 40%; /* Allowing visible space at the top and bottom */
-  background: rgb(119, 117, 117); /* Nearly opaque for less transparency */
+  background: rgb(207, 198, 198); /* Nearly opaque for less transparency */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
   border: 1px solid black !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 9)
 }
 
 .modal-content {
@@ -195,7 +243,16 @@
   border-radius: 8px;
   width: 300px;
   max-width: 80%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+
+.modal-close-btn{
+  background: #da5026;
+  width: 70px;
+  border-radius: 5px;
+  border: 2px solid white;
+
 }
 
 
@@ -203,8 +260,7 @@
 
 
 
-
-/* Media Queries for Responsiveness */
+/************************************** Media Queries for Responsiveness *************************************/
 @media (max-width: 1280px) {
   #root {
     max-width: 80%; /* Allow full width on smaller screens */
@@ -215,3 +271,5 @@
     margin: 0; /* Remove margin for smaller screens */
   }
 }
+
+

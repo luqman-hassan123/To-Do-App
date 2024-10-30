@@ -63,12 +63,12 @@ function App() {
 
   return (
     // main container
-    <div className="container-fluid">
+    <div className="container-fluid bg-light">
       {/* first heading  */}
       <Header className="main-header" title="To Do App" />
 
       {/* card component */}
-      <Card className="card text-bg-info p-3">
+      <Card className="card text-dark bg-light p-3">
         <h5 className="card-title">Enter To Do Item</h5>
         <Input
           placeholder="Add Title"
@@ -77,7 +77,7 @@ function App() {
           onChange={(e) => setTitle(e.target.value)}
         />
          <TextArea
-          className ="text-area-field "
+          className =""
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Add Description" // Optional placeholder
@@ -99,9 +99,9 @@ function App() {
 
 
 
-      <Card className="card text-bg-info p-3">
+      <Card className="card text-dark bg-light p-3">
         <h5 className="card-title"> To Do Items list</h5>
-        <div className="row shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div className="row shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
           <ToDoContent
             className="item"
             items={todoItems}
