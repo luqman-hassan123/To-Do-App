@@ -1,8 +1,8 @@
 #root {
   width: 100%; /* Allow full width on larger screens */
-  max-width: 1280px; /* Limit width on smaller screens */
+   max-width: 1280px; /*Limit width on smaller screens */
   margin: 0 auto; /* Center the app */
-  /* padding: 2rem; Keep padding for inner spacing */
+   padding: 2rem;  /*Keep padding for inner spacing */
   border-radius: 5px;
 
   margin-top: 8px;
@@ -19,14 +19,14 @@
 
 
 /* ****************main container *************************** */
-.container-fluid{
+/* .container-fluid{
   padding: 1rem;
   width: 40% !important;
   border: 1px solid gainsboro;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
 
-}
+} */
 
 .card {
   margin-bottom: 30px; 
@@ -63,14 +63,16 @@
 
 /* *************add item button **************************** */
 .addItem {
-  width: 25px !important; /* Set the desired width */
+  width: auto !important; /* Set the desired width */
   height: 40px !important;
   min-width: 100px; /* Minimum width for smaller screens */
   max-width: 200px; /* Maximum width */
   margin: 0 auto; /* Center the button */
   display: block !important;
   transition: background 1s ease !important;
-
+  white-space: nowrap;
+  text-align: center !important;
+  
   &:hover{
     background: rgb(26, 29, 16) !important;
     box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
@@ -175,6 +177,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  color: wheat;
 
 }
 
@@ -224,15 +227,17 @@
   position: fixed;
   border-radius: 5px;
   color: rgb(19, 18, 18);
-  top: 10%; /* Position it slightly down to avoid full-screen overlay */
-  left: 10%; /* Position it slightly from the left to create space */
-  width: 80%; /* Allowing visible space on either side */
-  height: 40%; /* Allowing visible space at the top and bottom */
-  background: rgb(207, 198, 198); /* Nearly opaque for less transparency */
+  top: 40%; /* Position it slightly down to avoid full-screen overlay */
+  left: 50%; /* Position it slightly from the left to create space */
+  width: 60%; /* Allowing visible space on either side */
+  max-width: 500px;
+  height: 30%; /* Allowing visible space at the top and bottom */
+  background: rgb(252, 250, 250); /* Nearly opaque for less transparency */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  transform: translate(-50% , -50%);
   border: 1px solid black !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 9)
 }
@@ -241,18 +246,16 @@
   background: rgb(68, 57, 57);
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
-  max-width: 80%;
+  width: 100px !;
+  max-width: 100%;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
 
-.modal-close-btn{
-  background: #da5026;
-  width: 70px;
-  border-radius: 5px;
-  border: 2px solid white;
-
+.modal-header{
+  font-weight: bold;
+  justify-content: center;
+  font-size: 25px;
 }
 
 
