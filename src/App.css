@@ -4,7 +4,6 @@
   margin: 0 auto; /* Center the app */
    padding: 2rem;  /*Keep padding for inner spacing */
   border-radius: 5px;
-
   margin-top: 8px;
   margin-bottom: 8px;
 }
@@ -18,16 +17,6 @@
 }
 
 
-/* ****************main container *************************** */
-/* .container-fluid{
-  padding: 1rem;
-  width: 40% !important;
-  border: 1px solid gainsboro;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
-
-} */
-
 .card {
   margin-bottom: 30px; 
 }
@@ -38,8 +27,6 @@
   border-radius: 5px ;  /* Optional: rounding card corners */
   box-shadow:0 4px 10px rgba(0, 0, 0, 0.5) ;
   margin: 10px 10px 10px 10px;
-
-
 }
 
 
@@ -53,12 +40,14 @@
   padding: 10px;
   gap: 5px;
   margin-bottom: 10px;
+}
 
-  &:hover{
+.input-field:hover{
+  
     border: 1px solid blue;
     box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
-  }
 }
+
 
 
 /* *************add item button **************************** */
@@ -72,30 +61,25 @@
   transition: background 1s ease !important;
   white-space: nowrap;
   text-align: center !important;
-  
-  &:hover{
-    background: rgb(26, 29, 16) !important;
-    box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
-  }
 }
 
-.form-control{
-  &:hover{
+.addItem:hover{
+  background: rgb(26, 29, 16) !important;
+  box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
+}
+
+.form-control:hover{
     border: 1px solid blue;
     box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
-  }
 }
 
 
 
 /*  **********select priority *********** */
 
-.form-select{
-  &:hover{
+.form-select:hover{
     border: 1px solid blue;
     box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
-  }
-  
 }
 
 /* ***********item list ************************** */
@@ -107,7 +91,7 @@
   justify-content: space-between; /* Space between content */
   align-items: center; /* Center items vertically */
   display: flex !important;
-  border: 1px solid rgb(163, 160, 160) !important;
+  border: 1px solid rgb(202, 196, 196) !important;
   border-radius: 10px;
   margin-bottom: 10px;
   flex-wrap: wrap;
@@ -117,21 +101,24 @@
 /* ******************opton button info edit delete*****************/
 .to-do-item-options {
   position: absolute;
-  right: 0; /* Keep it aligned to the right */
+  right: -100px; /* Keep it aligned to the right */
   opacity: 0; /* Start hidden */
-  transition: opacity 0.5s ease, right 0.5s ease; /* Smooth transitions */
+  transition: opacity 0.5s ease, right 0.5s ease-in-out; /* Smooth transitions */
   z-index: 1; /* Ensure it appears above other elements */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 2px;
+  background: #eddffa;
 }
 
 .to-do-item-options.show {
   opacity: 1; /* Show the options */
+  right: 0px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 
-  margin-top: 10px;
-  margin-bottom: 10px;
+
 }
 
 /* Style for badge on the right */
@@ -150,16 +137,8 @@
   margin-left: auto;
   z-index: 1; /* Base z-index to keep it above content */
   transition: opacity 0.5s ease;
-  
-  
 }
 
-/* Hide the badge under buttons on hover */
-.badge:hover {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  z-index: -1; /* Pushes it below buttons when hovered */
-}
 
 /* when hover on item priority badge will hide */
 .to-do-item:hover .badge {
@@ -182,20 +161,7 @@
 }
 
 
-/* ********************************Custom button width ****************************/
-.btn-small-width {
-  width: 30%; /* Set width as a percentage */
-  min-width: 120px; /* Optional minimum width for responsiveness */
-}
 
-
-
-.button-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0;
-}
 
 .todo-content {
   display: flex;           /* Enable flexbox */
@@ -211,52 +177,27 @@
   padding: 10px;           /* Example: Add padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
 
-  &:hover{
-    border: 2px solid blue !important;
+}
+.to-do-item:hover{
+  border: 1px solid blue !important;
     box-shadow: 5px 5px 5px rgba(184, 167, 167, 0.5);
-  }
 }
 
 
 
 
-
-/* **********************modal *******************************/
-
-.modal-overlay {
-  position: fixed;
-  border-radius: 5px;
-  color: rgb(19, 18, 18);
-  top: 40%; /* Position it slightly down to avoid full-screen overlay */
-  left: 50%; /* Position it slightly from the left to create space */
-  width: 60%; /* Allowing visible space on either side */
-  max-width: 500px;
-  height: 30%; /* Allowing visible space at the top and bottom */
-  background: rgb(252, 250, 250); /* Nearly opaque for less transparency */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  transform: translate(-50% , -50%);
-  border: 1px solid black !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 9)
+.dropdown-modal .modal-dialog{
+  transform: translateY(-50px);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; 
+  opacity: 0;
+ 
 }
 
-.modal-content {
-  background: rgb(68, 57, 57);
-  padding: 20px;
-  border-radius: 8px;
-  width: 100px !;
-  max-width: 100%;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+.dropdown-modal.show .modal-dialog{
+  transform: translateY(0);
+  opacity: 1;
 }
 
-
-.modal-header{
-  font-weight: bold;
-  justify-content: center;
-  font-size: 25px;
-}
 
 
 

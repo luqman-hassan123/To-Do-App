@@ -11,12 +11,13 @@ const ToDoItem = ({ title, description, priority, onDelete, onUpdate, onInfo }) 
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="to-do-item-content flex-grow-1">
-        <span className={`badge ${priority.toLowerCase()}`}>{priority}</span>
+        <span className={`badge d-flex justify-content-center align-items-center ${priority.toLowerCase()}`}>{priority}</span>
         <strong className="ms-3">{title}</strong>
         <p>{description}</p>
       </div>
 
-      <div className= {` to-do-item-options ${isHovered ? 'show' : ''}`}>
+      <div className= {` to-do-item-options  ${isHovered ? 'show' : ''}`}
+      >
       <button className="btn btn-info btn-sm mx-1" onClick ={() => onInfo ({title, description, priority}) }title="Info">
           Info
         </button>

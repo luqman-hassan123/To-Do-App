@@ -11,7 +11,6 @@ import ToDoContent from "./assets/components/ToDoContent";
 import Header from "./assets/components/Header";
 import React, { useState } from "react";
 import Dropdown from "./assets/components/Dropdown";
-// import Footer from "./assets/components/Footer";
 
 function App() {
   const [title, setTitle] = useState("");
@@ -84,7 +83,7 @@ function App() {
 
   return (
     // main container 
-    <div className="container-fluid bg-light ">
+   
     <div className="row col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-sm-12 col-sm-12">
       {/* first heading  */}
       <Header className="main-header" title="To Do App" />
@@ -128,7 +127,7 @@ function App() {
       {/*  second card that show content */}
       <Card className="card text-dark bg-light p-3">
         <h5 className="card-title"> To Do Items list</h5>
-        <div className="row shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
+        <div className="row p-3 mb-5 bg-body-tertiary rounded ">
           <ToDoContent
             className="item"
             items={todoItems}
@@ -142,6 +141,7 @@ function App() {
       {/* modal component */}
       {isModalOpen && (
         <Modal
+          isModalOpen={isModalOpen}
           title={selectedItem.title}
           description={selectedItem.description}
           priority={selectedItem.priority}
@@ -150,7 +150,7 @@ function App() {
         </Modal>
       )}
       </div>
-    </div>
+
   );
 }
 export default App;
