@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextArea = ({ value, onChange, placeholder }) => {
+const TextArea = ({ value, onChange, placeholder, className }) => {
   return (
     
       <textarea
@@ -8,7 +8,7 @@ const TextArea = ({ value, onChange, placeholder }) => {
         onChange={onChange}
         placeholder={placeholder}
         rows={4} // Set the number of rows for the textarea
-        className="form-control" // Use Bootstrap class for styling
+        className= {className} // Use Bootstrap class for styling
       />
   );
 };

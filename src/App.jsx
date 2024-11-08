@@ -24,14 +24,38 @@ function App() {
     description: "",
     priority: "",
   });
+
+  // update state
   const [isUpdating, setIsUpdating] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
+
+
+  // form validation states
+  const [isTitleValid , setIsTitleValid] = useState(true)
+  const [isPriorityValid, setIsPriorityValid] = useState(true)
+  const [isDescriptionValid, setIsDescriptionValid] = useState(true)
+
+
 
   const handleDropDown = (event) => {
     setPriority(event.target.value);
   };
-
+ 
   const handleAddItem = () => {
+
+    const isTitleEmpty = title.trim () === "";
+    const isDescriptionEmpty = description.trim() === "";
+    const isPriorityEmpty = priority.trim() === "";
+
+    setIsTitleValid(!isTitleEmpty);
+    setIsDescriptionValid(!isDescriptionEmpty);
+    setIsPriorityValid(!isPriorityEmpty);
+
+    if (isTitleEmpty || isDescriptionEmpty || isPriorityEmpty){
+      return;
+    }    
+
+
     if (title && description && priority) {
       if (isUpdating) {
         //update item
@@ -82,7 +106,6 @@ function App() {
   };
 
   return (
-    // main container 
    
     <div className="row col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-sm-12 col-sm-12">
       {/* first heading  */}
@@ -95,18 +118,22 @@ function App() {
         {/* //input field for Title */}
         <Input
           placeholder="Add Title"
-          className="input-field"
+          className= {`input-field form-control ${!isTitleValid ? "is-invalid" : " "}`}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
+        {!isTitleValid && <div className="invalid-feedback">Titel is required</div>}
+
         {/* //input field for description  */}
         <TextArea
-          className=""
+          className={`form-control ${!isDescriptionValid ? "is-invalid" : ""}`}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Add Description" // Optional placeholder
         />
+
+        {!isDescriptionValid && <div className="invalid-feedback">Description is required</div>}
 
         {/* // priority */}
         <Dropdown
@@ -115,6 +142,8 @@ function App() {
           onChange={handleDropDown}
           selectedValue={priority}
         />
+
+         {!isPriorityValid && <div className="text-danger">Priority is required</div>}
 
         {/* //button */}
         <Button
